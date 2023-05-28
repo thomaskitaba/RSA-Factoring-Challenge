@@ -1,9 +1,17 @@
 import sys
 sys.argv
+num_list = []
 if len(sys.argv) != 2:
-  print("Invalide argument")
+    sys.exit("Script with Error")
 file = open(sys.argv[1])
 for row in file:
-  print(row[:-1])
+    # print(row[:-1])
+    num_list = int(row[:-1])
+    for i in range(2, 8):
+        if (num_list % i == 0):
+            num_1 = num_list / i
+            # print(type(num_list), end= ' ')
+            # print(type(num_1))
+            print("{:d}={:.0f}*{:d}".format(num_list, num_1, i))
 
 file.close()
