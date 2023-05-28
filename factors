@@ -2,6 +2,7 @@
 import sys
 sys.argv
 num_list = []
+found = 0
 if len(sys.argv) != 2:
     sys.exit("Script with Error")
 file = open(sys.argv[1])
@@ -11,8 +12,8 @@ for row in file:
     for i in range(2, 8):
         if (num_list % i == 0):
             num_1 = int(num_list / i)
-            # print(type(num_list), end= ' ')
-            # print(type(num_1))
+            found = 1
             print("{:d}={:d}*{:d}".format(num_list, num_1, i))
-
-file.close()
+    if (found == 0)
+        print("{:d}={:d}*{:d}".format(num_list, num_1, i))
+    file.close()
