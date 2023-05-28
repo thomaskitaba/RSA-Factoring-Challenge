@@ -16,7 +16,7 @@ for row in file:
     # print(row[:-1])
     num = int(row[:-1])
     if num > 4:
-        top = int((num) / 2)
+        top = int((num) // 2)
     else:
         top = num
     for i in range(2, top):
