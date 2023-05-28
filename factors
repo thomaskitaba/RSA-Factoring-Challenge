@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 import sys
+import math
+
 sys.argv
-num_list = []
+num = []
+num_1 = 0
+top = 0
 found = 0
 if len(sys.argv) != 2:
     sys.exit("Script with Error")
@@ -9,13 +13,14 @@ file = open(sys.argv[1])
 for row in file:
     found = 0
     # print(row[:-1])
-    num_list = int(row[:-1])
-    for i in range(2, 8):
-        if (num_list % i == 0):
-            num_1 = int(num_list / i)
+    num = int(row[:-1])
+    top = int(math.sqrt(num))
+    for i in range(2, top):
+        if (num % i == 0):
+            num_1 = int(num / i)
             found = 1
-            print("{:d}={:d}*{:d}".format(num_list, num_1, i))
+            print("{:d}={:d}*{:d}".format(num, num_1, i))
             break;
     if (found == 0):
-        print("{:d}={:d}*{:d}".format(num_list, num_1, 1))
+        print("{:d}={:d}*{:d}".format(num, num_1, 1))
 file.close()
