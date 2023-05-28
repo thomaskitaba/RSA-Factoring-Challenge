@@ -1,18 +1,26 @@
 #!/usr/bin/python3
 import sys
 
-num_list = []
-if len(sys.argv) != 2:
-    sys.exit("Script with Error")
-file = open(sys.argv[1])
-for row in file:
-    # print(row[:-1])
-    num_list = int(row[:-1])
-    for i in range(2, 8):
-        if (num_list % i == 0):
-            num_1 = num_list / i
-            # print(type(num_list), end= ' ')
-            # print(type(num_1))
-            print("{:d}={:.0f}*{:d}".format(num_list, num_1, i))
+def factorize(num):
+    factors = []
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            factors.append((i, num // i))
+            return factors
 
-file.close()
+def main(filename):
+    with open(sys.argv[1], 'r') as file:
+        for line in file:
+            num = int(line)
+            factorizations = factorize(num)
+            for factorization in factorizations:
+                p, q = factorization
+                print(f"{num}={p}*{q}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python factors.py <file>")
+        sys.exit(1)
+    filename = sys.argv[1]
+    main(filename)
+
