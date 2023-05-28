@@ -13,6 +13,6 @@ for row in file:
             num_1 = int(num_list / i)
             # print(type(num_list), end= ' ')
             # print(type(num_1))
-            print("{:d}={:.0f}*{:d}".format(num_list, num_1, i))
+            print("{:d}={:d}*{:d}".format(num_list, num_1, i))
 
 file.close()
