@@ -12,9 +12,13 @@ if len(sys.argv) != 2:
 file = open(sys.argv[1])
 for row in file:
     found = 0
+    num = 0
     # print(row[:-1])
     num = int(row[:-1])
-    top = int(math.sqrt(num))
+    if num > 4:
+        top = int((num + 1) / 2)
+    else:
+        top = num
     for i in range(2, top):
         if (num % i == 0):
             num_1 = int(num / i)
